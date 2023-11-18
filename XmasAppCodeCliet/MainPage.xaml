@@ -12,7 +12,7 @@
     </ContentPage.BindingContext>
    
 
-    <StackLayout Padding="20,30,10,0" Spacing="20">
+    <StackLayout Padding="0" Spacing="20">
         <SearchBar 
             x:Name="barcodeResult" 
             Keyboard="Numeric" 
@@ -26,15 +26,15 @@
             <Entry x:Name="barcodeResult" Keyboard="Numeric" Text="{Binding Barcode}" Background="BlanchedAlmond" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" /> -->
         </HorizontalStackLayout>
 
-        <cv:CameraView x:Name="cameraView" WidthRequest="500" HeightRequest="110"
+        <cv:CameraView x:Name="cameraView" WidthRequest="490" HeightRequest="110"
                            CamerasLoaded="cameraview_CamerasLoaded" BarCodeDetectionEnabled="True"
                   BarcodeDetected="cameraview_BarcodeDetected" VerticalOptions="Center" HorizontalOptions="Center" />
 
 
-
-        <StackLayout>
-            <Frame HeightRequest="220" BackgroundColor="LightGray" Padding="10">
-                <CollectionView ItemsSource="{Binding CatalogoProdotti}"
+        <RefreshView>
+           <StackLayout>
+            <Frame HeightRequest="220" WidthRequest="370" BackgroundColor="LightGray" Padding="10">
+                <CollectionView EmptyView="Nessun prodotto cercato." ItemsSource="{Binding CatalogoProdotti}"
                     ItemsLayout="VerticalList">
                     <CollectionView.ItemTemplate>
                         <DataTemplate x:DataType="models:Prodotto">
@@ -53,28 +53,27 @@
                     </CollectionView.ItemTemplate>
                 </CollectionView>
             </Frame>
-        </StackLayout>
-
+        </StackLayout> 
+        </RefreshView>
         <HorizontalStackLayout
-                               Padding="10"
-                               Spacing="120"
+                               Spacing="40"
                                HorizontalOptions="Center">
- 
-            <Button
-                x:Name="RicercaBtn"
-                Text="Cerca"
-                SemanticProperties.Hint="Esegue la ricerca del prodotto"
-                Command="{Binding RicuperaProdottoDalBarcode}"
-                HorizontalOptions="Center" 
-                WidthRequest="240"
-                HeightRequest="60"/>
             <Button
                 x:Name="RefreshBtn"
                 Text="Refresh"
                 SemanticProperties.Hint="Esegue la ricerca del prodotto"
                 Command="{Binding RicuperaProdottoDalBarcode}"
                 HorizontalOptions="Center" 
-                WidthRequest="240"
+                WidthRequest="160"
+                HeightRequest="60"/>
+
+            <Button
+                x:Name="RicercaBtn"
+                Text="Cerca"
+                SemanticProperties.Hint="Esegue la ricerca del prodotto"
+                Command="{Binding RicuperaProdottoDalBarcode}"
+                HorizontalOptions="Center" 
+                WidthRequest="160"
                 HeightRequest="60"/>
         </HorizontalStackLayout>
         <Label Text="{Binding Message}" TextColor="Red"/>

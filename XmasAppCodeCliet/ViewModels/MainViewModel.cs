@@ -117,16 +117,12 @@ namespace XmasAppCodeCliet.ViewModels
                    catch (Exception)
                    {
                        _ = Shell.Current.DisplayAlert("Avviso", "Prodotto non Trovato", "Ok");
-                       Prodotto vuoto = new Prodotto();
+                      /* Prodotto vuoto = new Prodotto();
                        vuoto.Nome = "Nessuno Prodotto trovato con questo codice.";
                        vuoto.Descrizione = "Certifica che questo prodotto sia inserito nel Database in precedenza.";
-                   //CatalogoProdotti.Add(vuoto);
+                       CatalogoProdotti.Add(vuoto);*/
                    }
                    
                });
-        //insere um produto
-
-        //altera um prodotto
-
     }
 }
