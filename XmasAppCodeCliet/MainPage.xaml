@@ -4,37 +4,36 @@
              xmlns:models="clr-namespace:XmasAppCodeCliet.Models"
              xmlns:viewmodels="clr-namespace:XmasAppCodeCliet.ViewModels"
              xmlns:cv="clr-namespace:Camera.MAUI;assembly=Camera.MAUI"
+             Title="XmasAppCode - Client"
              x:Class="XmasAppCodeCliet.MainPage">
 
    <ContentPage.BindingContext>
         <viewmodels:MainViewModel/>
     </ContentPage.BindingContext>
-    
-    <StackLayout Padding="10" Spacing="5">
+   
+
+    <StackLayout Padding="20,30,10,0" Spacing="20">
+        <SearchBar 
+            x:Name="barcodeResult" 
+            Keyboard="Numeric" 
+            Text="{Binding Barcode}"
+            Placeholder="Barcode" 
+            PlaceholderColor="LightGray"
+            SearchCommand="{Binding RicuperaProdottoDalBarcode}"
+            />
         <HorizontalStackLayout>
-            <Label Text="Codice Prodotto: " VerticalTextAlignment="Center"/>
-            <Entry x:Name="barcodeResult" Keyboard="Numeric" Text="{Binding Barcode}" Background="BlanchedAlmond" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" />
+           <!-- <Label Text="Codice Prodotto: " VerticalTextAlignment="Center"/>
+            <Entry x:Name="barcodeResult" Keyboard="Numeric" Text="{Binding Barcode}" Background="BlanchedAlmond" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" /> -->
         </HorizontalStackLayout>
 
         <cv:CameraView x:Name="cameraView" WidthRequest="500" HeightRequest="110"
                            CamerasLoaded="cameraview_CamerasLoaded" BarCodeDetectionEnabled="True"
                   BarcodeDetected="cameraview_BarcodeDetected" VerticalOptions="Center" HorizontalOptions="Center" />
-        <Label Text="Prodotto:"/>
-        <Entry Text="{Binding Nome}" Placeholder="Produto" Background="LightGray"  Keyboard="Text"/>
 
-        <Label Text="Descrizione Prodotto"/>
-        <Entry Text="{Binding Descrizione}"  Placeholder="Descriçao Produto" Background="LightGray"  Keyboard="Text"/>
-        <HorizontalStackLayout Spacing="10" HorizontalOptions="CenterAndExpand">
-            <Label Text="Peso:" />
-            <Entry Text="{Binding Peso}" Placeholder="0,000" Background="LightGray"  Keyboard="Plain"  MaxLength="10" />
-
-            <Label Text=" Prezzo:" />
-            <Entry Text="{Binding Prezzo}" Placeholder="0,00" Background="LightGray"  Keyboard="Plain" MaxLength="10" />
-        </HorizontalStackLayout>
 
 
         <StackLayout>
-            <Frame HeightRequest="210" BackgroundColor="LightGray" Padding="10">
+            <Frame HeightRequest="220" BackgroundColor="LightGray" Padding="10">
                 <CollectionView ItemsSource="{Binding CatalogoProdotti}"
                     ItemsLayout="VerticalList">
                     <CollectionView.ItemTemplate>
@@ -60,24 +59,25 @@
                                Padding="10"
                                Spacing="120"
                                HorizontalOptions="Center">
+ 
             <Button
-                x:Name="SaveBtn"
-                Text="Salva"
-                SemanticProperties.Hint="Save the object you click"
-                Command="{Binding RicuperaProdotti}"
-                HorizontalOptions="Center" 
-                WidthRequest="120"
-                HeightRequest="50"
-            />
-            <Button
-                x:Name="NewBtn"
-                Text="Nuovo"
-                SemanticProperties.Hint="Enable the cell cam for read barcode you click"
+                x:Name="RicercaBtn"
+                Text="Cerca"
+                SemanticProperties.Hint="Esegue la ricerca del prodotto"
                 Command="{Binding RicuperaProdottoDalBarcode}"
                 HorizontalOptions="Center" 
-                WidthRequest="120"
-                HeightRequest="50"/>
+                WidthRequest="240"
+                HeightRequest="60"/>
+            <Button
+                x:Name="RefreshBtn"
+                Text="Refresh"
+                SemanticProperties.Hint="Esegue la ricerca del prodotto"
+                Command="{Binding RicuperaProdottoDalBarcode}"
+                HorizontalOptions="Center" 
+                WidthRequest="240"
+                HeightRequest="60"/>
         </HorizontalStackLayout>
-        <Label Text="{Binding Message}" Background="AntiqueWhite" TextColor="Red"/>
+        <Label Text="{Binding Message}" TextColor="Red"/>
+        
     </StackLayout>
 </ContentPage>

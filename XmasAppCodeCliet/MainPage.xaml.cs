@@ -23,7 +23,8 @@
         {
             MainThread.BeginInvokeOnMainThread(() =>
             {
-                barcodeResult.Text = $"{args.Result[0].Text}";
+                barcodeResult.Text = args.Result[0].Text;
+                //barcodeFormat.Text = $"Tipo di codice scannerizato: {args.Result[0].BarcodeFormat}";
 
             });
         }
