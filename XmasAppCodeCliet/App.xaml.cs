@@ -1,4 +1,4 @@
-﻿namespace XmasAppCodeCliet
+﻿namespace XmasAppCodeClient
 {
     public partial class App : Application
     {

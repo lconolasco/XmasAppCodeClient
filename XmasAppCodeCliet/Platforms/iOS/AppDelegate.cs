@@ -1,6 +1,6 @@
 ﻿using Foundation;
 
-namespace XmasAppCodeCliet
+namespace XmasAppCodeClient
 {
     [Register("AppDelegate")]
     public class AppDelegate : MauiUIApplicationDelegate

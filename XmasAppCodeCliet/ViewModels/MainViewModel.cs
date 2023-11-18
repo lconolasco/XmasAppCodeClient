@@ -2,9 +2,9 @@
 using System.Collections.ObjectModel;
 using System.Text.Json;
 using System.Windows.Input;
-using XmasAppCodeCliet.Models;
+using XmasAppCodeClient.Models;
 
-namespace XmasAppCodeCliet.ViewModels
+namespace XmasAppCodeClient.ViewModels
 {
     public partial class MainViewModel : ObservableObject
     {

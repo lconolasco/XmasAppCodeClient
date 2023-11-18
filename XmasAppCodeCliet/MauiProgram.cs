@@ -1,7 +1,7 @@
 ﻿using Camera.MAUI;
 using Microsoft.Extensions.Logging;
 
-namespace XmasAppCodeCliet
+namespace XmasAppCodeClient
 {
     public static class MauiProgram
     {

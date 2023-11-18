@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace XmasAppCodeCliet.Models
+namespace XmasAppCodeClient.Models
 {
     public class Prodotto
     {
